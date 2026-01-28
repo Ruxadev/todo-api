@@ -28,6 +28,11 @@ class Api::V1::LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    @location.destroy
+    head :no_content
+  end
+
   private
 
   def set_location
