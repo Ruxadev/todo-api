@@ -20,6 +20,14 @@ class Api::V1::LocationsController < ApplicationController
     end
   end
 
+  def update
+    if @location.update(location_params)
+      render json: @location
+    else
+      render json: @location.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_location
